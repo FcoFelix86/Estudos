@@ -1,0 +1,5 @@
+mes = input ("Digite o Mes| ")
+dia = input("Digite o dia| ")
+ano = input("Digite o Ano| ")
+print (mes,"/", dia ,"/",ano)
+print (dia, mes, ano, sep= '/')
