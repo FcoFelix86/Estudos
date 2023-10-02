@@ -2,7 +2,7 @@ import requests
 # Função consulta_cep, onde fará a consulta ao serviço ViaCEP e Exibe as informações do CEP.
 def consulta_cep(cep):
 
-    #URL de consulta para a geração o CEP
+    #URL de consulta para a consulta do CEP
     url = f'https://viacep.com.br/ws/{cep}/json/'
     response = requests.get(url)
     
@@ -19,7 +19,7 @@ def consulta_cep(cep):
             print("CEP não encontrado.")
     else:
         print("Erro ao consultar o CEP.")
-        
+
 #Caso seja necessário encerrar o programa, será necessário digitar a palavra sim. 
 while True:
     print("Consulta de CEP")
