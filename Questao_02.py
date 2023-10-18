@@ -1,7 +1,7 @@
 import random
 
 # Lista de palavras possíveis
-palavras = ["faculdade", "programacao", "linguagem", "repeticao", "jogador", "fortaleza", "alimento", ""]
+palavras = ["faculdade", "programacao", "linguagem", "repeticao", "jogador", "fortaleza", "alimento", "software", "desenvolvimento"]
 
 # Escolhe uma palavra aleatória da lista
 palavra_escolhida = random.choice(palavras)
