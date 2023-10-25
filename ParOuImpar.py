@@ -1,14 +1,14 @@
-def verificar_par_impar(numero):
+def par_impar(numero):
+    
     if numero % 2 == 0:
-        return "O número é par."
+        return True
     else:
-        return "O número é ímpar."
+        return False
 
-entrada = input("Digite um número inteiro: ")
+numero = int(input("Digite um número: "))
+resultado = par_impar(numero)
 
-if entrada.isdigit():
-    numero = int(entrada)
-    resultado = verificar_par_impar(numero)
-    print(resultado)
+if resultado:
+    print(f"{numero} é um numero par.")
 else:
-    print("Por favor, insira um número inteiro válido.")
+    print(f"{numero} é um numero impar.")
