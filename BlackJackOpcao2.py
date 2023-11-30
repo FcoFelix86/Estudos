@@ -37,11 +37,11 @@ def calcular_pontos(mao):
     return pontos
 
 # Função para mostrar a mão de um jogador
-def show_hand(mao):
+def mostra_mao(mao):
     return ', '.join(mao)
 
 # Função para mostrar os pontos de um jogador
-def show_points(mao):
+def exibir_pontos(mao):
     return calcular_pontos(mao)
 
 # Função para comprar uma carta
@@ -56,7 +56,7 @@ def bet(saldo_atual):
 
     while True:
         try:
-            aposta = int(input("Faça sua aposta: R$"))
+            aposta = int(input("Faça sua aposta: R$  "))
             if aposta <= saldo_atual and aposta > 0:
                 saldo_atual -= aposta
                 return aposta
@@ -68,11 +68,11 @@ def bet(saldo_atual):
 # Função para render-se e encerrar o jogo
 def surrender(mao, jogador):
     pontos = calcular_pontos(mao)
-    print(f"Jogador {jogador}, você se rendeu! Pontos: {pontos}. Saldo final: R${saldos_atuais[jogador - 1]}")
+    print(f"Jogador {jogador}, você se rendeu! Pontos: {pontos}. Saldo final: R$ {saldos_atuais[jogador - 1]}")
     exit()
 
 # Função para mostrar o saldo atual
-def show_money(jogador):
+def mostra_dinheiro(jogador):
     print(f"Saldo do Jogador {jogador}: R${saldos_atuais[jogador - 1]}")
 
 # Função para a jogada do computador
@@ -102,6 +102,15 @@ def comprar_fichas(jogador):
             print("Opção de ficha inválida. Escolha um valor disponível.")
 
 # Função principal do jogo
+
+
+def novo_jogo():
+    while True:
+        jogar_blackjack()
+        continuar = input("Deseja fazer uma nova partida? (s/n): ").lower()
+        if continuar != 's':
+            break
+
 def jogar_blackjack():
     print("Bem-vindo ao Blackjack!")
 
@@ -110,7 +119,7 @@ def jogar_blackjack():
 
         # Comprar fichas
         fichas_compradas = comprar_fichas(jogador)
-        print(f"Você comprou fichas no valor de R${fichas_compradas}")
+        print(f"Você comprou fichas no valor de R${fichas_compradas} ")
 
         # Inicializa o jogo para o jogador
         jogador_mao = [hit(baralho), hit(baralho)]
@@ -118,7 +127,7 @@ def jogar_blackjack():
         aposta = bet(saldos_atuais[jogador - 1])
 
         # Mostra as mãos iniciais
-        print(f"\nSua mão: {show_hand(jogador_mao)}")
+        print(f"\nSua mão: {mostra_mao(jogador_mao)}")
         print(f"Computador: {computador_mao[0]}, *")
 
         # Loop do jogador
@@ -134,8 +143,8 @@ def jogar_blackjack():
             if escolha == '1':
                 carta = hit(jogador_mao)
                 print(f"Você comprou: {carta}")
-                print(f"Sua mão: {show_hand(jogador_mao)}")
-                pontos = show_points(jogador_mao)
+                print(f"Sua mão: {mostra_mao(jogador_mao)}")
+                pontos = exibir_pontos(jogador_mao)
                 print(f"Pontos: {pontos}")
 
                 if pontos > 21:
@@ -149,7 +158,7 @@ def jogar_blackjack():
                 surrender(jogador_mao, jogador)
 
             elif escolha == '4':
-                show_money(jogador)
+                mostra_dinheiro(jogador)
 
             else:
                 print("Escolha inválida. Tente novamente.")
@@ -161,12 +170,12 @@ def jogar_blackjack():
 
         # Mostra as mãos finais
         print("\nMãos finais:")
-        print(f"Sua mão: {show_hand(jogador_mao)} - Pontos: {show_points(jogador_mao)}")
-        print(f"Computador: {show_hand(computador_mao)} - Pontos: {show_points(computador_mao)}")
+        print(f"Sua mão: {mostra_mao(jogador_mao)} - Pontos: {exibir_pontos(jogador_mao)}")
+        print(f"Computador: {mostra_mao(computador_mao)} - Pontos: {exibir_pontos(computador_mao)}")
 
         # Determina o vencedor
-        pontos_jogador = show_points(jogador_mao)
-        pontos_computador = show_points(computador_mao)
+        pontos_jogador = exibir_pontos(jogador_mao)
+        pontos_computador = exibir_pontos(computador_mao)
 
         if pontos_jogador > 21 or (pontos_computador <= 21 and pontos_computador >= pontos_jogador):
             saldos_atuais[jogador - 1] -= aposta
@@ -175,9 +184,14 @@ def jogar_blackjack():
             saldos_atuais[jogador - 1] += aposta * 2
             print(f"Jogador {jogador}, você ganhou a aposta!")
 
-    # Mostra os saldos finais de todos os jogadores
-    for jogador in range(1, 3):
-        print(f"Saldo final do Jogador {jogador}: R${saldos_atuais[jogador - 1]}")
+        # Mostra os saldos finais de todos os jogadores
+        for jogador in range(1, 3):
+            print(f"Saldo final do Jogador {jogador}: R${saldos_atuais[jogador - 1]}")
+
+        # Verifica se algum jogador ficou sem saldo
+        if any(saldo <= 0 for saldo in saldos_atuais):
+            print("Um ou mais jogadores ficaram sem saldo. Fim do jogo.")
+            exit()
 
 if __name__ == "__main__":
-    jogar_blackjack()
+    novo_jogo()
