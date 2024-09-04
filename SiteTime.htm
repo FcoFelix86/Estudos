@@ -1,0 +1,61 @@
+
+<head>
+    <title>Time do Coração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+        }
+        .image-container figcaption {
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Time do Coração</h1>
+
+    <!-- Imagem com legenda -->
+    <div class="image-container">
+        <figure>
+            <img src="imagem.jpg" alt="Imagem do Time do Coração">
+            <figcaption>Legenda da imagem do Time do Coração</figcaption>
+        </figure>
+    </div>
+
+    <!-- Vídeo -->
+    <h2>Vídeo sobre o Time</h2>
+    <video width="320" height="240" controls>
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <!-- Checkboxes -->
+    <h2>Quais jogadores você gosta?</h2>
+    <label><input type="checkbox" name="jogador1" value="jogador1"> Jogador 1</label><br>
+    <label><input type="checkbox" name="jogador2" value="jogador2"> Jogador 2</label><br>
+    <label><input type="checkbox" name="jogador3" value="jogador3"> Jogador 3</label><br>
+
+    <!-- Botões de rádio -->
+    <h2>Qual a sua posição favorita em campo?</h2>
+    <label><input type="radio" name="posicao" value="goleiro"> Goleiro</label><br>
+    <label><input type="radio" name="posicao" value="defensor"> Defensor</label><br>
+    <label><input type="radio" name="posicao" value="meio-campista"> Meio-campista</label><br>
+    <label><input type="radio" name="posicao" value="atacante"> Atacante</label><br>
+
+    <!-- Select -->
+    <h2>Selecione o seu estádio preferido:</h2>
+    <select name="estadio">
+        <option value="estadio1">Estádio 1</option>
+        <option value="estadio2"selected>Estádio 2</option>
+        <option value="estadio3">Estádio 3</option>
+    </select>
+</body>
+</html>
