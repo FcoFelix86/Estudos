@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição</title>
+</head>
+<body>
+    <h1>Formulário de Inscrição</h1>
+    <form id="form">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            Nome: <input type="text" name="nome" required><br>
+            E-mail: <input type="email" name="email" required><br>
+            Endereço: <input type="text" name="Endereço" required><br>
+            Cidade: <input type="text" name="Cidade" required><br>
+            Estado:
+            <select name="Cidade" required>
+                <option value="">Selecione</option>
+                <option value="SP">SP</option>
+                <option value="RJ">RJ</option>
+                <option value="CE"selected>CE</option>
+                <option value="PE">PE</option>
+                <option value="BA">BA</option>
+                <option value="RS">RS</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Dados Profissionais</legend>
+            <h4>Profissão:</h4>
+            <input type="radio" name="profissao" value="Engenharia">Engenharia
+            <input type="radio" name="profissao" value="Medicina">Medicina
+            <input type="radio" name="profissao" value="Design">Tecnologia
+            <input type="radio" name="profissao" value="Design">Psicologia
+
+            <h4> Área de Interesse:</h4>
+            <label>
+                <input type ="checkbox" name="interesses"> Clinico Geral
+                <label>
+                    <input type ="checkbox" name="interesses"> Cirurgião
+                    <label>
+                        <input type ="checkbox" name="interesses"> UI/UX
+                        <label>
+                            <input type ="checkbox" name="interesses"> Q.A
+                            <label>
+                                <input type ="checkbox" name="interesses"> Psicologia Familiar
+                                <label>
+                                    <input type ="checkbox" name="interesses"> Eng. de Software
+                                    <label>
+                                        <input type ="checkbox" name="interesses"> Eng. de Produção
+                                        <label>
+                                            <input type ="checkbox" name="interesses"> Tecnoligia da Informação
+                
+            </select><br>
+            Mini-curriculo: <textarea name="comentarios" rows="5" cols="50" placeholder="Escreva suas observações..."></textarea>
+        </fieldset>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+    </form>
+</body>
+</html>
