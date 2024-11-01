@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moeda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #78fbee;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 28px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #35d1f8;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #30bcd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Moeda</h2>
+        <input type="number" id="valor" placeholder="Digite o valor" step="0.01">
+        <select id="moeda">
+            <option value="USD">Dólar para Real</option>
+            <option value="BRL">Real para Dólar</option>
+        </select>
+        <button onclick="converter()">Converter</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script src="cotacaoRealDolar.js"></script>
+</body>
+</html>
