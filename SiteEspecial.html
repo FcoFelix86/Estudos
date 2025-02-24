@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Profissional e Paciente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('file:///C:/Projetos/SiteEspecial/Fundo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.619); /* Fundo com transparência */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .role-selector {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .role-selector button {
+            width: 45%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .role-selector button:hover {
+            background-color: #0056b3;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="role-selector">
+            <button onclick="selectRole('profissional')">Profissional</button>
+            <button onclick="selectRole('paciente')">Paciente</button>
+        </div>
+        <form id="loginForm" onsubmit="login(event)">
+            <input type="email" id="email" class="input-field" placeholder="Email" required>
+            <input type="password" id="password" class="input-field" placeholder="Senha" required>
+            <input type="hidden" id="role" value="">
+            <button type="submit" class="submit-btn">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        function selectRole(role) {
+            document.getElementById('role').value = role;
+            alert("Função selecionada: " + (role === 'profissional' ? 'Profissional' : 'Paciente'));
+        }
+
+        function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            if (role === '') {
+                alert('Por favor, selecione uma função (Profissional ou Paciente).');
+                return;
+            }
+
+            // Processamento do login
+            alert(`Login como ${role === 'profissional' ? 'Profissional' : 'Paciente'} com o email ${email}`);
+        }
+    </script>
+</body>
+</html>
